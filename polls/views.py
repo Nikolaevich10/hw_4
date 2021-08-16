@@ -1,10 +1,7 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404, render
-from django.urls import reverse
-from django.views import generic
 from django.utils import timezone
+from django.views import generic
 
-from .models import Choice, Question
+from .models import Question
 
 
 class IndexView(generic.ListView):
@@ -38,6 +35,4 @@ class ResultsView(generic.DetailView):
 
 
 def vote(request, question_id):
-    ... # same as above, no changes needed.
-
-
+    ...   # same as above, no changes needed.
