@@ -14,5 +14,5 @@ class Command(BaseCommand):
         toads = options['toads']
         fake = Faker()
         a = [User(i, username=fake.name(), email=fake.email(), password=fake.password()) for i in range(toads)]
-        User.objects.dates()
+        User.objects.all().delete()
         User.objects.bulk_create(a)
