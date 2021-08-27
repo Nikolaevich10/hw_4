@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Hypotenuse</title>
+</head>
+<body>
+<h2> calculator </h2>
+{% if gip %}
+        <p> hypotinus is equal to{{ gip }} </p>
+    {% else%}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">count</button>
+</form>
+{% endif %}
+</body>
+</html>

@@ -1,7 +1,10 @@
+import math
+from django.shortcuts import render
 from django.utils import timezone
 from django.views import generic
 
 from .models import Question
+from .forms import Triangle
 
 
 class IndexView(generic.ListView):
@@ -36,3 +39,20 @@ class ResultsView(generic.DetailView):
 
 def vote(request, question_id):
     ...   # same as above, no changes needed.
+
+
+def triangle(request):
+    gip = None
+    if request.method == 'POST':
+        form = Triangle(request.POST)
+        if form.is_valid():
+            kat1 = form.cleaned_data['kat1']
+            kat2 = form.cleaned_data['kat2']
+            gip = round(math.sqrt(kat1 ** 2 + kat2 ** 2), 2)
+    else:
+        form = Triangle()
+
+    return render(request,
+                  'polls/triangle.html',
+                  {'gip': gip,
+                   'form': form})
