@@ -29,3 +29,12 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.choice_text
+
+
+class Person(models.Model):
+    first_name = models.CharField(verbose_name='ИМЯ', max_length=30)
+    last_name = models.CharField(verbose_name='ФАМИЛИЯ', max_length=30)
+    email = models.EmailField(verbose_name='ПОЧТА')
+
+    def __str__(self):
+        return self.first_name, self.last_name, self.email
