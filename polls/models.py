@@ -38,3 +38,12 @@ class Person(models.Model):
 
     def __str__(self):
         return self.first_name, self.last_name, self.email
+
+
+class Log(models.Model):
+    path = models.CharField(verbose_name='way', max_length=120)
+    timestamp = models.DateTimeField(verbose_name='time')
+    method = models.CharField(verbose_name='method', max_length=120)
+
+    def __str__(self):
+        return self.path
